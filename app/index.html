@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System Design Interview Copilot</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <div class="studio-app">
+    <!-- Top Navigation Header -->
+    <header class="studio-header">
+      <div class="header-left">
+        <a href="#" class="brand-logo" id="brand-home-link" title="Open Problem Catalog">
+          <div class="brand-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="8" height="8" rx="2" stroke="#06B6D4"/>
+              <rect x="14" y="2" width="8" height="8" rx="2" stroke="#6366F1"/>
+              <rect x="8" y="14" width="8" height="8" rx="2" stroke="#10B981"/>
+              <path d="M6 10v2a2 2 0 002 2h8a2 2 0 002-2v-2" stroke="#94A3B8"/>
+              <path d="M12 10v4" stroke="#94A3B8"/>
+            </svg>
+          </div>
+          <div class="brand-name">
+            <span>System Design</span>
+            <span class="brand-tag">Interview Copilot</span>
+          </div>
+        </a>
+        <button id="btn-header-catalog" class="btn btn-secondary btn-sm" title="Open Problem Library & AI Generator">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"/>
+            <rect x="14" y="3" width="7" height="7"/>
+            <rect x="14" y="14" width="7" height="7"/>
+            <rect x="3" y="14" width="7" height="7"/>
+          </svg>
+          <span>Catalog</span>
+        </button>
+      </div>
+
+      <!-- Phase Stepper -->
+      <nav class="header-stepper" id="header-stepper">
+        <div class="step-item" data-phase="1" id="step-nav-1" title="Phase 1: Problem & Scope">
+          <span class="step-num">1</span>
+          <span class="step-label">Problem</span>
+        </div>
+        <span class="step-arrow">&gt;</span>
+        <div class="step-item" data-phase="2" id="step-nav-2" title="Phase 2: Requirements & Math">
+          <span class="step-num">2</span>
+          <span class="step-label">Requirements</span>
+        </div>
+        <span class="step-arrow">&gt;</span>
+        <div class="step-item" data-phase="3" id="step-nav-3" title="Phase 3: Architecture & Schemas">
+          <span class="step-num">3</span>
+          <span class="step-label">Architecture</span>
+        </div>
+        <span class="step-arrow">&gt;</span>
+        <div class="step-item" data-phase="4" id="step-nav-4" title="Phase 4: Deep Dives">
+          <span class="step-num">4</span>
+          <span class="step-label">Deep Dives</span>
+        </div>
+        <span class="step-arrow">&gt;</span>
+        <div class="step-item" data-phase="5" id="step-nav-5" title="Phase 5: Final Scorecard">
+          <span class="step-num">5</span>
+          <span class="step-label">Scorecard</span>
+        </div>
+      </nav>
+
+      <!-- Right Header Actions -->
+      <div class="header-right">
+        <!-- Global Timer -->
+        <div class="global-timer-widget" id="global-timer-widget">
+          <span class="timer-dot"></span>
+          <span id="global-timer-display">00:00</span>
+        </div>
+
+        <!-- Badges -->
+        <span class="badge badge-cyan" id="header-level-badge">Senior</span>
+        <span class="badge badge-indigo" id="header-model-badge">Gemini 3.1 Pro</span>
+
+        <!-- Settings Button -->
+        <button id="btn-open-settings-modal" class="btn btn-secondary btn-sm" title="Configure Settings & API Keys">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+          Settings
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Workspace Stage Viewport (Modular Stage Views loaded here) -->
+    <main class="studio-main">
+      <div class="stage-viewport" id="stage-viewport"></div>
+    </main>
+
+    <!-- Modular Modals Root -->
+    <div id="modals-root"></div>
+
+    <!-- Modular Floating Tools Root (Clarification Drawer & AI Assistant) -->
+    <div id="floating-tools-root"></div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="toast-container"></div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

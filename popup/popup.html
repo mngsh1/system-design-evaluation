@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System Design Copilot</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="popup-header">
+      <div class="brand">
+        <div class="logo-badge">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="8" height="8" rx="2" stroke="#06B6D4"/>
+            <rect x="14" y="2" width="8" height="8" rx="2" stroke="#6366F1"/>
+            <rect x="8" y="14" width="8" height="8" rx="2" stroke="#10B981"/>
+            <path d="M6 10v2a2 2 0 002 2h8a2 2 0 002-2v-2" stroke="#94A3B8"/>
+            <path d="M12 10v4" stroke="#94A3B8"/>
+          </svg>
+        </div>
+        <div>
+          <h1 class="brand-title">System Design</h1>
+          <span class="brand-subtitle">AI Interview Copilot</span>
+        </div>
+      </div>
+      <button id="btn-open-settings" class="icon-btn" title="Open Settings">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+        </svg>
+      </button>
+    </header>
+
+    <!-- Session Status Card -->
+    <section id="session-card" class="session-card">
+      <div id="no-session-view" class="card-content">
+        <div class="status-indicator ready">
+          <span class="pulse-dot"></span>
+          <span>Studio Ready</span>
+        </div>
+        
+        <!-- Last Completed Interview Summary Pill (if available) -->
+        <div id="last-interview-summary" class="last-interview-box hidden" style="margin: 10px 0; padding: 8px 10px; background: rgba(10, 14, 24, 0.6); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); text-align: left;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+            <span style="font-size: 10px; font-weight: 700; color: var(--cyan-400); text-transform: uppercase;">Latest Result</span>
+            <span id="last-interview-verdict" class="badge badge-emerald" style="font-size: 9px; padding: 2px 6px;">Strong Hire</span>
+          </div>
+          <div id="last-interview-title" style="font-size: 11px; font-weight: 600; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            Global Ride-Hailing Match
+          </div>
+          <div id="last-interview-meta" style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">
+            Score: 88/100 • 35m active
+          </div>
+        </div>
+
+        <p id="no-session-desc" class="status-text">Simulate real-world senior & staff level system design mock interviews.</p>
+        <button id="btn-start-new" class="btn btn-primary btn-block">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="5 3 19 12 5 21 5 3"/>
+          </svg>
+          Launch Interview Studio
+        </button>
+      </div>
+
+      <div id="active-session-view" class="card-content hidden">
+        <div class="status-indicator active">
+          <span class="pulse-dot active-dot"></span>
+          <span>Interview In Progress</span>
+        </div>
+        <h3 id="session-problem-title" class="session-title">Designing Distributed System</h3>
+        <div class="session-meta">
+          <span id="session-phase-badge" class="badge">Phase 2: Clarification</span>
+          <span id="session-time" class="time-badge">14:20</span>
+        </div>
+        <div class="action-row">
+          <button id="btn-resume-session" class="btn btn-primary">
+            Resume Interview
+          </button>
+          <button id="btn-discard-session" class="btn btn-ghost" title="Reset Session">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="3 6 5 6 21 6"/>
+              <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Model Status & Level Footer -->
+    <footer class="popup-footer">
+      <div class="footer-item">
+        <span class="label">Provider:</span>
+        <span id="footer-provider" class="value">Gemini 3.1 Pro</span>
+      </div>
+      <div class="footer-item">
+        <span class="label">Level:</span>
+        <span id="footer-level" class="value badge-level">Senior Eng</span>
+      </div>
+    </footer>
+    <div style="text-align: center; padding: 4px 0 2px; font-size: 10px; color: var(--text-muted);">
+      Created by <strong style="color: var(--cyan-400);">Mangesh Chimankar</strong>
+    </div>
+  </div>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!-- Problem Discovery & Catalog -->
+<section id="phase-view-0" class="stage-view active" data-phase="0">
+  <!-- Discovery Banner -->
+  <div id="discovery-level-banner" class="discovery-banner"></div>
+
+  <!-- Actions & Search Bar -->
+  <div class="discovery-actions-bar">
+    <div class="discovery-search-box">
+      <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input type="text" id="problem-search-input" class="form-input search-input" placeholder="Search problems by keyword, system type, or scale...">
+    </div>
+
+    <div style="display: flex; gap: 10px; align-items: center;">
+      <button id="btn-generate-problems" class="btn btn-primary">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+        </svg>
+        ✨ Generate 10 AI Problems
+      </button>
+
+      <button id="btn-generate-more" class="btn btn-secondary" title="Fetch 10 more unique problems">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+        </svg>
+        +10 More
+      </button>
+
+      <button id="btn-open-custom-modal" class="btn btn-secondary" title="Enter custom interview topic">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="12" y1="5" x2="12" y2="19"/>
+          <line x1="5" y1="12" x2="19" y2="12"/>
+        </svg>
+        Custom Problem
+      </button>
+    </div>
+  </div>
+
+  <!-- Filter Chips -->
+  <div class="filter-chips-row" style="margin-bottom: 20px;">
+    <span style="font-size: 12px; color: var(--text-subtle); margin-right: 4px;">Filter:</span>
+    <div class="filter-chip active" data-filter-type="status" data-filter-value="ALL">All Problems</div>
+    <div class="filter-chip" data-filter-type="status" data-filter-value="RECENT">⚡ Recently Generated</div>
+    <div class="filter-chip" data-filter-type="status" data-filter-value="SOLVED">✔ Solved</div>
+
+    <span style="font-size: 12px; color: var(--text-subtle); margin-left: 12px; margin-right: 4px;">Level:</span>
+    <div class="filter-chip active" data-filter-type="level" data-filter-value="ALL">All Levels</div>
+    <div class="filter-chip" data-filter-type="level" data-filter-value="SENIOR">Senior</div>
+    <div class="filter-chip" data-filter-type="level" data-filter-value="STAFF">Staff</div>
+    <div class="filter-chip" data-filter-type="level" data-filter-value="PRINCIPAL">Principal</div>
+    <div class="filter-chip" data-filter-type="level" data-filter-value="MID-LEVEL">Mid-Level</div>
+
+    <span style="font-size: 12px; color: var(--text-subtle); margin-left: 12px; margin-right: 4px;">Domain:</span>
+    <div class="filter-chip active" data-filter-type="category" data-filter-value="ALL">All Domains</div>
+    <div class="filter-chip" data-filter-type="category" data-filter-value="Distributed">Distributed</div>
+    <div class="filter-chip" data-filter-type="category" data-filter-value="Storage">Storage & Cache</div>
+    <div class="filter-chip" data-filter-type="category" data-filter-value="Media">Media & Stream</div>
+    <div class="filter-chip" data-filter-type="category" data-filter-value="FinTech">FinTech</div>
+  </div>
+
+  <!-- Problem Cards Grid -->
+  <div id="problem-cards-grid" class="problem-cards-grid"></div>
+</section>

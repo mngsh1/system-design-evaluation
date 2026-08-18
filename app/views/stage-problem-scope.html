@@ -1,0 +1,90 @@
+<!-- Phase 1: Problem & Scope -->
+<section id="phase-view-1" class="stage-view" data-phase="1">
+  <!-- Problem Overview Header Card -->
+  <div class="card clarify-header-card">
+    <div class="clarify-header-top">
+      <div>
+        <div class="card-badges" style="margin-bottom: 6px;">
+          <span class="badge badge-cyan" id="clarify-problem-level">Senior</span>
+          <span class="badge badge-subtle" id="clarify-problem-category">Distributed Systems</span>
+          <span class="badge badge-indigo">Phase 1: Problem & Scope</span>
+        </div>
+        <h2 class="clarify-title" id="clarify-problem-title">Global Ride-Hailing Match & Real-Time Dispatch System</h2>
+      </div>
+      <button id="btn-begin-design" class="btn btn-primary btn-lg">
+        <span>🚀 Proceed to Requirements (Phase 2)</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="5" y1="12" x2="19" y2="12"/>
+          <polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </button>
+    </div>
+    <div class="clarify-prompt-box">
+      <div class="prompt-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+      </div>
+      <div>
+        <span class="prompt-label">Interviewer Initial Brief:</span>
+        <p id="clarify-problem-desc" class="prompt-text">Loading problem brief...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Clarification Chat Card -->
+  <div class="card clarify-chat-card">
+    <div class="chat-card-header">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <div class="status-indicator active" style="margin-bottom: 0;">
+          <span class="pulse-dot active-dot"></span>
+          <span>Interviewer Live Chat</span>
+        </div>
+      </div>
+      <span style="font-size: 12px; color: var(--text-subtle);">Ask clarifying questions on scale, latency, consistency, and feature scope.</span>
+    </div>
+
+    <!-- Messages Viewport -->
+    <div id="clarify-chat-messages" class="chat-messages-container"></div>
+
+    <!-- Typing Indicator -->
+    <div id="clarify-typing-indicator" class="typing-indicator-box hidden">
+      <span class="typing-dot"></span>
+      <span class="typing-dot"></span>
+      <span class="typing-dot"></span>
+      <span style="font-size: 11px; color: var(--text-muted); margin-left: 6px;">Interviewer is typing...</span>
+    </div>
+
+    <!-- Quick Suggestion Chips -->
+    <div id="clarify-chips-container" class="clarify-chips-container">
+      <span class="chips-label">Suggested Questions:</span>
+      <button class="clarify-chip" data-prompt-text="What is the expected daily active users (DAU) and read/write QPS ratio?">
+        📊 Expected DAU & QPS ratio?
+      </button>
+      <button class="clarify-chip" data-prompt-text="What are our strict latency (p99) and availability (99.99%) SLAs?">
+        ⏱️ Latency & Availability SLAs?
+      </button>
+      <button class="clarify-chip" data-prompt-text="Is global multi-region active-active deployment required?">
+        🌍 Multi-region active-active scope?
+      </button>
+      <button class="clarify-chip" data-prompt-text="What is the data retention policy and expected storage growth per year?">
+        💾 Storage growth & data retention?
+      </button>
+      <button class="clarify-chip" data-prompt-text="Are payment gateways, notifications, and user authentication in scope?">
+        🛡️ Payments & Auth in scope?
+      </button>
+    </div>
+
+    <!-- Chat Input Area -->
+    <div class="chat-input-wrapper">
+      <textarea id="clarify-chat-input" class="form-textarea chat-input" rows="2" placeholder="Ask the interviewer a clarifying question... (Press Enter to send)"></textarea>
+      <button id="btn-send-clarify" class="btn btn-primary" style="align-self: flex-end; height: 42px;">
+        <span>Send</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="22" y1="2" x2="11" y2="13"/>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,65 @@
+<!-- Phase 4: Deep Dives -->
+<section id="phase-view-4" class="stage-view" data-phase="4">
+  <!-- Problem Pinned Header -->
+  <div class="card clarify-header-card" style="padding: 16px 20px;">
+    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+      <div>
+        <div class="card-badges" style="margin-bottom: 4px;">
+          <span class="badge badge-cyan" id="deepdive-problem-level">Senior</span>
+          <span class="badge badge-subtle" id="deepdive-problem-category">Distributed Systems</span>
+          <span class="badge badge-amber">Phase 4: Architectural Deep Dives</span>
+        </div>
+        <h2 class="clarify-title" id="deepdive-problem-title" style="font-size: 18px;">Global Ride-Hailing Match & Real-Time Dispatch System</h2>
+      </div>
+      <button id="btn-open-clarify-from-deepdive" class="btn btn-secondary btn-sm">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        View Clarification Notes
+      </button>
+    </div>
+  </div>
+
+  <!-- Loading State for Dynamic Question Generation -->
+  <div id="deepdive-loading-questions" class="card hidden" style="padding: 40px; text-align: center;">
+    <div class="spinner" style="width: 36px; height: 36px; margin: 0 auto 16px;"></div>
+    <h3 style="font-size: 16px; font-family: var(--font-display); color: var(--text-primary); margin-bottom: 6px;">Interviewer is Analyzing Your Architecture Diagram...</h3>
+    <p style="font-size: 13px; color: var(--text-secondary); max-width: 500px; margin: 0 auto;">Generating 3 customized deep-dive technical challenges tailored specifically to your component choices, bottlenecks, and data flow.</p>
+  </div>
+
+  <!-- Deep Dive Questions Container -->
+  <div id="deepdive-questions-container" class="deepdive-container"></div>
+
+  <!-- Actions Bar -->
+  <div class="req-actions-bar">
+    <button id="btn-submit-deepdive" class="btn btn-primary btn-lg" style="width: 100%; max-width: 480px; margin: 0 auto;">
+      <span>Submit Deep Dive Solutions for Evaluation</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="9 18 15 12 9 6"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Evaluation Review Card -->
+  <div id="deepdive-evaluation-card" class="card req-eval-card hidden">
+    <div class="card-header" style="margin-bottom: 12px;">
+      <h3 class="card-title">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="8" x2="12" y2="12"/>
+          <line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+        Stage 4 Deep Dives Evaluation & Trade-Off Analysis
+      </h3>
+      <span class="badge badge-subtle">Timer Paused During Review</span>
+    </div>
+
+    <div id="deepdive-evaluation-content" class="eval-body"></div>
+
+    <div class="eval-next-row" style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border-subtle); display: flex; justify-content: flex-end;">
+      <button id="btn-next-to-scorecard" class="btn btn-primary btn-lg">
+        <span>Next: Proceed to Final Evaluation Scorecard (Phase 5) &rarr;</span>
+      </button>
+    </div>
+  </div>
+</section>

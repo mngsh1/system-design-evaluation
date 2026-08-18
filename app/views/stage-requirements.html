@@ -1,0 +1,102 @@
+<!-- Phase 2: Requirements & Math -->
+<section id="phase-view-2" class="stage-view" data-phase="2">
+  <!-- Problem Pinned Header -->
+  <div class="card clarify-header-card" style="padding: 16px 20px;">
+    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+      <div>
+        <div class="card-badges" style="margin-bottom: 4px;">
+          <span class="badge badge-cyan" id="req-problem-level">Senior</span>
+          <span class="badge badge-subtle" id="req-problem-category">Distributed Systems</span>
+          <span class="badge badge-emerald">Phase 2: Requirements & Estimations</span>
+        </div>
+        <h2 class="clarify-title" id="req-problem-title" style="font-size: 18px;">Global Ride-Hailing Match & Real-Time Dispatch System</h2>
+      </div>
+      <button id="btn-open-clarify-from-req" class="btn btn-secondary btn-sm">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        View Clarification Notes
+      </button>
+    </div>
+  </div>
+
+  <!-- 3 Structured Resizable Requirement Textareas -->
+  <div class="req-grid-container">
+    <!-- 1. Functional Requirements -->
+    <div class="card req-box-card">
+      <div class="req-box-header">
+        <div>
+          <h3 class="req-box-title">1. Functional Requirements</h3>
+          <span class="req-box-sub">Core capabilities, user workflows, API contracts</span>
+        </div>
+        <button type="button" id="btn-template-functional" class="btn btn-ghost btn-sm" title="Insert starter template">
+          + Add API Template
+        </button>
+      </div>
+      <textarea id="req-functional-input" class="form-textarea req-textarea" placeholder="e.g.&#10;1. Riders can request trips with pickup & drop-off location.&#10;2. Nearby available drivers receive ride offers within 5 seconds.&#10;3. Drivers broadcast GPS location updates every 4 seconds.&#10;4. Support ride completion, cancellation, and driver status toggle."></textarea>
+    </div>
+
+    <!-- 2. Non-Functional Requirements -->
+    <div class="card req-box-card">
+      <div class="req-box-header">
+        <div>
+          <h3 class="req-box-title">2. Non-Functional Requirements</h3>
+          <span class="req-box-sub">Availability, Latency SLAs, CAP Consistency, Resiliency</span>
+        </div>
+        <button type="button" id="btn-template-nonfunctional" class="btn btn-ghost btn-sm" title="Insert SLA checklist">
+          + Add SLA Checklist
+        </button>
+      </div>
+      <textarea id="req-nonfunctional-input" class="form-textarea req-textarea" placeholder="e.g.&#10;- High Availability: 99.99% uptime for core matching.&#10;- Low Latency: p99 < 100ms for location ingestion, p99 < 200ms for dispatch match.&#10;- Consistency: Strong consistency for driver dispatch state lock (no double booking); Eventual consistency for search & location map rendering.&#10;- Fault Tolerance: Multi-AZ failover and graceful degradation under network partition."></textarea>
+    </div>
+
+    <!-- 3. Back-of-the-Envelope Calculations -->
+    <div class="card req-box-card req-box-full">
+      <div class="req-box-header">
+        <div>
+          <h3 class="req-box-title">3. Back-of-the-Envelope Math & Scale Estimations</h3>
+          <span class="req-box-sub">DAU/MAU, Read/Write QPS, Bandwidth, Storage growth per year, RAM Cache sizing</span>
+        </div>
+        <button type="button" id="btn-template-estimations" class="btn btn-ghost btn-sm" title="Insert standard math formulas">
+          + Add Math Formula
+        </button>
+      </div>
+      <textarea id="req-estimations-input" class="form-textarea req-textarea" style="min-height: 140px;" placeholder="e.g.&#10;Traffic:&#10;- 50M DAU, 1M active drivers broadcasting GPS every 4s.&#10;- Write QPS: 1M drivers / 4s = 250,000 location writes/sec (Peak: 750K QPS).&#10;&#10;Storage:&#10;- Driver GPS packet: driverId (8B) + lat/lng (16B) + timestamp (8B) ≈ 64 Bytes.&#10;- Storage/day: 250K/s * 86,400s * 64B ≈ 1.38 TB / day (≈ 500 TB / year).&#10;&#10;Memory Cache:&#10;- Active driver live states in Redis geospatial cache: 1M * 64B ≈ 64 MB (easily in-memory)."></textarea>
+    </div>
+  </div>
+
+  <!-- Evaluation Trigger Bar -->
+  <div class="req-actions-bar">
+    <button id="btn-submit-requirements" class="btn btn-primary btn-lg" style="width: 100%; max-width: 480px; margin: 0 auto;">
+      <span>Submit Requirements for Evaluation</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="9 18 15 12 9 6"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Evaluation Scorecard Review Card (Revealed upon submission) -->
+  <div id="req-evaluation-card" class="card req-eval-card hidden">
+    <div class="card-header" style="margin-bottom: 12px;">
+      <h3 class="card-title">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/>
+          <line x1="16" y1="17" x2="8" y2="17"/>
+          <polyline points="10 9 9 9 8 9"/>
+        </svg>
+        Stage 2 Requirements & Math Evaluation
+      </h3>
+      <span class="badge badge-subtle">Timer Paused During Review</span>
+    </div>
+
+    <div id="req-evaluation-content" class="eval-body"></div>
+
+    <div class="eval-next-row" style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border-subtle); display: flex; justify-content: flex-end;">
+      <button id="btn-next-to-hld" class="btn btn-primary btn-lg">
+        <span>Next: Proceed to Architecture & Schemas (Phase 3) &rarr;</span>
+      </button>
+    </div>
+  </div>
+</section>
